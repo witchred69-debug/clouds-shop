@@ -15,4 +15,21 @@ render.yamlservices:
       - key: ADMIN_TOKEN
         value: clouds-shop-admin-token
       - key: OPENAI_API_KEY
+        sync: falserender.yamlservices:
+  - type: web
+    name: clouds-shop
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_TOKEN
+        value: clouds-shop-admin-token
+      - key: OPENAI_API_KEY
         sync: false

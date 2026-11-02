@@ -1,4 +1,4 @@
-services:
+render.yamlservices:
   - type: web
     name: clouds-shop
     env: python
